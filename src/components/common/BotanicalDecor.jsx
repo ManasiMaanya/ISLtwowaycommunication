@@ -1,9 +1,9 @@
 import React from 'react';
 
 /**
- * Botanical Flower Graphic (Single Motif)
+ * Botanical Flower Graphic (Single Multi-layer Motif)
  */
-export function BotanicalFlower({ size = 32, className = '' }) {
+export function BotanicalFlower({ size = 32, className = '', color = '#f08b76' }) {
   return (
     <svg
       width={size}
@@ -14,225 +14,215 @@ export function BotanicalFlower({ size = 32, className = '' }) {
       className={className}
       aria-hidden="true"
     >
-      {/* Outer Petals */}
-      <circle cx="24" cy="24" r="12" fill="#f08b76" opacity="0.35" />
-      <ellipse cx="24" cy="14" rx="4.5" ry="7.5" fill="#f08b76" />
-      <ellipse cx="24" cy="34" rx="4.5" ry="7.5" fill="#f08b76" />
-      <ellipse cx="14" cy="24" rx="7.5" ry="4.5" fill="#f08b76" />
-      <ellipse cx="34" cy="24" rx="7.5" ry="4.5" fill="#f08b76" />
-      <ellipse cx="17" cy="17" rx="4.5" ry="6.5" transform="rotate(-45 17 17)" fill="#fa9f8e" />
-      <ellipse cx="31" cy="17" rx="4.5" ry="6.5" transform="rotate(45 31 17)" fill="#fa9f8e" />
-      <ellipse cx="17" cy="31" rx="4.5" ry="6.5" transform="rotate(45 17 31)" fill="#fa9f8e" />
-      <ellipse cx="31" cy="31" rx="4.5" ry="6.5" transform="rotate(-45 31 31)" fill="#fa9f8e" />
-      {/* Flower Center Core */}
-      <circle cx="24" cy="24" r="4.5" fill="#f6c358" />
-      <circle cx="24" cy="24" r="2" fill="#ffffff" opacity="0.8" />
+      {/* Outer Glow Halo */}
+      <circle cx="24" cy="24" r="14" fill={color} opacity="0.25" />
+      {/* 8 Blooming Petals */}
+      <ellipse cx="24" cy="13" rx="4.5" ry="8" fill={color} />
+      <ellipse cx="24" cy="35" rx="4.5" ry="8" fill={color} />
+      <ellipse cx="13" cy="24" rx="8" ry="4.5" fill={color} />
+      <ellipse cx="35" cy="24" rx="8" ry="4.5" fill={color} />
+      <ellipse cx="16" cy="16" rx="4.5" ry="7" transform="rotate(-45 16 16)" fill="#fa9f8e" />
+      <ellipse cx="32" cy="16" rx="4.5" ry="7" transform="rotate(45 32 16)" fill="#fa9f8e" />
+      <ellipse cx="16" cy="32" rx="4.5" ry="7" transform="rotate(45 16 32)" fill="#fa9f8e" />
+      <ellipse cx="32" cy="32" rx="4.5" ry="7" transform="rotate(-45 32 32)" fill="#fa9f8e" />
+      {/* Pistil Stamen Center */}
+      <circle cx="24" cy="24" r="5" fill="#f6c358" />
+      <circle cx="24" cy="24" r="2.2" fill="#ffffff" opacity="0.9" />
     </svg>
   );
 }
 
 /**
  * Full Botanical Corner Flourish
- * Matches the reference slide corner botanical art (blooms, leaves, vines)
+ * Matches the reference slide corner botanical art (blooms, mint leaves, curling vines)
  */
 export function BotanicalCornerGraphic({ width = 280, height = 280, opacity = 0.95, className = '' }) {
   return (
     <svg
       width={width}
       height={height}
-      viewBox="0 0 240 240"
+      viewBox="0 0 260 260"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       style={{ opacity }}
       aria-hidden="true"
     >
-      {/* Organic Vine Stems */}
+      {/* Deep Background Ghost Foliage */}
       <path
-        d="M12 228 C16 160 50 80 180 16"
-        stroke="#48c9b0"
-        strokeWidth="2.2"
+        d="M20 250 C25 150 70 60 240 10"
+        stroke="#2d564b"
+        strokeWidth="3.5"
         strokeLinecap="round"
+        opacity="0.45"
+      />
+      <path
+        d="M40 240 C50 170 100 80 230 40"
+        stroke="#386b5e"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeDasharray="5 4"
+        opacity="0.5"
+      />
+
+      {/* Main Crisp Mint Vine Branches */}
+      <path
+        d="M10 245 C15 165 55 75 210 18"
+        stroke="#48c9b0"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        opacity="0.9"
+      />
+      <path
+        d="M10 180 C50 155 105 125 140 65"
+        stroke="#48c9b0"
+        strokeWidth="2"
+        strokeLinecap="round"
+        opacity="0.8"
+      />
+
+      {/* Organic Tendril Spirals */}
+      <path
+        d="M105 120 C128 132 140 156 128 168 C116 180 98 168 104 150"
+        stroke="#7be495"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        fill="none"
         opacity="0.85"
       />
       <path
-        d="M20 220 C24 175 65 115 155 45"
-        stroke="#386b5e"
+        d="M160 65 C184 72 202 90 196 108 C190 120 172 114 172 100"
+        stroke="#7be495"
         strokeWidth="1.6"
         strokeLinecap="round"
-        strokeDasharray="4 3"
-        opacity="0.6"
-      />
-      <path
-        d="M8 170 C45 150 90 120 120 70"
-        stroke="#48c9b0"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        opacity="0.75"
-      />
-
-      {/* Curling Tendrils */}
-      <path
-        d="M95 115 C115 125 125 145 115 155 C105 165 90 155 95 140"
-        stroke="#7be495"
-        strokeWidth="1.4"
-        strokeLinecap="round"
         fill="none"
-        opacity="0.8"
-      />
-      <path
-        d="M140 65 C160 70 175 85 170 100 C165 110 150 105 150 92"
-        stroke="#7be495"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        fill="none"
-        opacity="0.8"
+        opacity="0.85"
       />
 
-      {/* Mint Foliage Leaves */}
-      <path d="M45 140 C35 120 50 105 68 112 C58 126 55 132 45 140 Z" fill="#48c9b0" opacity="0.9" />
-      <path d="M78 105 C70 85 88 72 102 82 C92 95 88 100 78 105 Z" fill="#7be495" opacity="0.92" />
-      <path d="M125 55 C120 35 140 25 152 38 C140 48 135 52 125 55 Z" fill="#48c9b0" opacity="0.9" />
-      <path d="M165 25 C162 8 180 2 190 14 C180 22 175 25 165 25 Z" fill="#7be495" opacity="0.85" />
-      <path d="M25 190 C12 175 26 158 40 168 C32 180 28 185 25 190 Z" fill="#32936f" opacity="0.8" />
-      <path d="M100 75 C108 58 126 62 122 78 C112 80 106 78 100 75 Z" fill="#7be495" opacity="0.85" />
-      <path d="M60 165 C48 152 62 138 74 148 C66 158 64 162 60 165 Z" fill="#48c9b0" opacity="0.85" />
+      {/* Mint & Seafoam Foliage Leaf Sprigs */}
+      <path d="M48 148 C36 125 54 108 74 116 C63 132 60 139 48 148 Z" fill="#48c9b0" opacity="0.95" />
+      <path d="M85 110 C76 88 96 74 112 85 C101 100 96 105 85 110 Z" fill="#7be495" opacity="0.95" />
+      <path d="M138 58 C132 36 154 24 168 39 C154 50 149 54 138 58 Z" fill="#48c9b0" opacity="0.92" />
+      <path d="M185 24 C181 5 202 -1 213 13 C201 22 196 25 185 24 Z" fill="#7be495" opacity="0.9" />
+      <path d="M26 205 C12 188 28 168 44 180 C35 194 30 200 26 205 Z" fill="#32936f" opacity="0.85" />
+      <path d="M110 78 C120 58 140 63 135 81 C124 83 117 81 110 78 Z" fill="#7be495" opacity="0.9" />
+      <path d="M68 178 C54 163 70 148 84 159 C75 170 73 175 68 178 Z" fill="#48c9b0" opacity="0.9" />
 
-      {/* Small White / Mint Buds */}
-      <circle cx="180" cy="18" r="3" fill="#ffffff" opacity="0.85" />
-      <circle cx="198" cy="12" r="2" fill="#fde68a" />
-      <circle cx="16" cy="195" r="3" fill="#ffffff" opacity="0.85" />
-      <circle cx="10" cy="215" r="2.5" fill="#fde68a" />
-      <circle cx="110" cy="160" r="2.5" fill="#ffffff" opacity="0.8" />
+      {/* Delicate Buds & White Flower Accents */}
+      <circle cx="205" cy="18" r="3.5" fill="#ffffff" opacity="0.9" />
+      <circle cx="225" cy="12" r="2.5" fill="#fde68a" />
+      <circle cx="18" cy="210" r="3.5" fill="#ffffff" opacity="0.9" />
+      <circle cx="10" cy="235" r="2.5" fill="#fde68a" />
+      <circle cx="120" cy="175" r="3" fill="#ffffff" opacity="0.85" />
+      <circle cx="178" cy="115" r="2.5" fill="#fde68a" />
 
-      {/* Main Corner Floral Blossom (Top-Left Accent) */}
-      <g transform="translate(52, 52)">
-        <circle cx="0" cy="0" r="16" fill="#f08b76" opacity="0.25" />
-        {/* Petals */}
-        <ellipse cx="0" cy="-14" rx="5.5" ry="9" fill="#f08b76" />
-        <ellipse cx="0" cy="14" rx="5.5" ry="9" fill="#f08b76" />
-        <ellipse cx="-14" cy="0" rx="9" ry="5.5" fill="#f08b76" />
-        <ellipse cx="14" cy="0" rx="9" ry="5.5" fill="#f08b76" />
-        <ellipse cx="-10" cy="-10" rx="5.5" ry="8" transform="rotate(-45 -10 -10)" fill="#fa9f8e" />
-        <ellipse cx="10" cy="-10" rx="5.5" ry="8" transform="rotate(45 10 -10)" fill="#fa9f8e" />
-        <ellipse cx="-10" cy="10" rx="5.5" ry="8" transform="rotate(45 -10 10)" fill="#fa9f8e" />
-        <ellipse cx="10" cy="10" rx="5.5" ry="8" transform="rotate(-45 10 10)" fill="#fa9f8e" />
-        {/* Pistil Core */}
-        <circle cx="0" cy="0" r="6" fill="#f6c358" />
-        <circle cx="0" cy="0" r="2.5" fill="#ffffff" opacity="0.9" />
+      {/* Main Corner Floral Blossom (Dominant Peach Bloom) */}
+      <g transform="translate(60, 60)">
+        <circle cx="0" cy="0" r="18" fill="#f08b76" opacity="0.3" />
+        <ellipse cx="0" cy="-16" rx="6" ry="10" fill="#f08b76" />
+        <ellipse cx="0" cy="16" rx="6" ry="10" fill="#f08b76" />
+        <ellipse cx="-16" cy="0" rx="10" ry="6" fill="#f08b76" />
+        <ellipse cx="16" cy="0" rx="10" ry="6" fill="#f08b76" />
+        <ellipse cx="-12" cy="-12" rx="6" ry="9" transform="rotate(-45 -12 -12)" fill="#fa9f8e" />
+        <ellipse cx="12" cy="-12" rx="6" ry="9" transform="rotate(45 12 -12)" fill="#fa9f8e" />
+        <ellipse cx="-12" cy="12" rx="6" ry="9" transform="rotate(45 -12 12)" fill="#fa9f8e" />
+        <ellipse cx="12" cy="12" rx="6" ry="9" transform="rotate(-45 12 12)" fill="#fa9f8e" />
+        <circle cx="0" cy="0" r="7" fill="#f6c358" />
+        <circle cx="0" cy="0" r="3" fill="#ffffff" opacity="0.95" />
       </g>
 
-      {/* Secondary Medium Blossom */}
-      <g transform="translate(145, 36) scale(0.65)">
-        <ellipse cx="0" cy="-12" rx="4.5" ry="7" fill="#f08b76" />
-        <ellipse cx="0" cy="12" rx="4.5" ry="7" fill="#f08b76" />
-        <ellipse cx="-12" cy="0" rx="7" ry="4.5" fill="#f08b76" />
-        <ellipse cx="12" cy="0" rx="7" ry="4.5" fill="#f08b76" />
-        <circle cx="0" cy="0" r="4" fill="#f6c358" />
+      {/* Secondary Peach Blossom */}
+      <g transform="translate(162, 40) scale(0.72)">
+        <circle cx="0" cy="0" r="12" fill="#f08b76" opacity="0.25" />
+        <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#f08b76" />
+        <ellipse cx="0" cy="13" rx="5" ry="8" fill="#f08b76" />
+        <ellipse cx="-13" cy="0" rx="8" ry="5" fill="#f08b76" />
+        <ellipse cx="13" cy="0" rx="8" ry="5" fill="#f08b76" />
+        <ellipse cx="-9" cy="-9" rx="5" ry="7" transform="rotate(-45 -9 -9)" fill="#fa9f8e" />
+        <ellipse cx="9" cy="-9" rx="5" ry="7" transform="rotate(45 9 -9)" fill="#fa9f8e" />
+        <ellipse cx="-9" cy="9" rx="5" ry="7" transform="rotate(45 -9 9)" fill="#fa9f8e" />
+        <ellipse cx="9" cy="9" rx="5" ry="7" transform="rotate(-45 9 9)" fill="#fa9f8e" />
+        <circle cx="0" cy="0" r="5" fill="#f6c358" />
       </g>
 
-      {/* Tertiary Medium Blossom */}
-      <g transform="translate(34, 142) scale(0.65)">
-        <ellipse cx="0" cy="-12" rx="4.5" ry="7" fill="#f08b76" />
-        <ellipse cx="0" cy="12" rx="4.5" ry="7" fill="#f08b76" />
-        <ellipse cx="-12" cy="0" rx="7" ry="4.5" fill="#f08b76" />
-        <ellipse cx="12" cy="0" rx="7" ry="4.5" fill="#f08b76" />
-        <circle cx="0" cy="0" r="4" fill="#f6c358" />
+      {/* Tertiary Peach Blossom */}
+      <g transform="translate(38, 155) scale(0.72)">
+        <circle cx="0" cy="0" r="12" fill="#f08b76" opacity="0.25" />
+        <ellipse cx="0" cy="-13" rx="5" ry="8" fill="#f08b76" />
+        <ellipse cx="0" cy="13" rx="5" ry="8" fill="#f08b76" />
+        <ellipse cx="-13" cy="0" rx="8" ry="5" fill="#f08b76" />
+        <ellipse cx="13" cy="0" rx="8" ry="5" fill="#f08b76" />
+        <circle cx="0" cy="0" r="5" fill="#f6c358" />
       </g>
     </svg>
   );
 }
 
 /**
- * Symmetrical 4-Corner Framing Container
+ * Full Botanical Side Flourish (Framing Left and Right Viewport Margins)
+ * Directly inspired by Image 11 of the reference presentation!
  */
-export function BotanicalCornerFrame({ children, className = '', cornerSize = 220, opacity = 0.9 }) {
-  return (
-    <div className={`botanical-canvas-frame ${className}`}>
-      {/* Top Left */}
-      <div className="botanical-corner botanical-corner-tl botanical-breathe">
-        <BotanicalCornerGraphic width={cornerSize} height={cornerSize} opacity={opacity} />
-      </div>
-      {/* Top Right */}
-      <div className="botanical-corner botanical-corner-tr botanical-breathe" style={{ animationDelay: '1.5s' }}>
-        <BotanicalCornerGraphic width={cornerSize} height={cornerSize} opacity={opacity} />
-      </div>
-      {/* Bottom Left */}
-      <div className="botanical-corner botanical-corner-bl botanical-breathe" style={{ animationDelay: '3s' }}>
-        <BotanicalCornerGraphic width={cornerSize} height={cornerSize} opacity={opacity} />
-      </div>
-      {/* Bottom Right */}
-      <div className="botanical-corner botanical-corner-br botanical-breathe" style={{ animationDelay: '4.5s' }}>
-        <BotanicalCornerGraphic width={cornerSize} height={cornerSize} opacity={opacity} />
-      </div>
+export function BotanicalSideBorder({ side = 'left', className = '' }) {
+  const isRight = side === 'right';
 
-      {children}
-    </div>
-  );
-}
-
-/**
- * Botanical Symmetrical Garland (Top/Bottom Center Banner from Reference Deck)
- */
-export function BotanicalGarland({ width = 460, height = 50, className = '' }) {
   return (
-    <div className={`botanical-garland-wrap ${className}`}>
+    <div
+      className={`botanical-side-border ${isRight ? 'botanical-side-right' : 'botanical-side-left'} ${className}`}
+      style={{
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        [isRight ? 'right' : 'left']: 0,
+        width: '180px',
+        pointerEvents: 'none',
+        zIndex: 1,
+        overflow: 'hidden',
+        userSelect: 'none',
+        opacity: 0.88,
+        transform: isRight ? 'scaleX(-1)' : 'none'
+      }}
+      aria-hidden="true"
+    >
       <svg
-        width={width}
-        height={height}
-        viewBox="0 0 520 60"
+        width="180"
+        height="100%"
+        viewBox="0 0 180 900"
+        preserveAspectRatio="xMinYMin slice"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="botanical-garland"
       >
-        {/* Left Vine Arch */}
+        {/* Continuous Curving Vine Stem */}
         <path
-          d="M30 30 C120 10 180 50 250 30"
+          d="M10 0 C30 180 -10 320 35 480 C70 620 15 780 40 900"
           stroke="#48c9b0"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          opacity="0.85"
+        />
+        <path
+          d="M0 80 C40 220 10 380 50 560 C80 700 30 820 10 900"
+          stroke="#386b5e"
           strokeWidth="1.8"
           strokeLinecap="round"
-          opacity="0.8"
-        />
-        {/* Right Vine Arch */}
-        <path
-          d="M490 30 C400 10 340 50 270 30"
-          stroke="#48c9b0"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          opacity="0.8"
+          strokeDasharray="4 3"
+          opacity="0.5"
         />
 
-        {/* Left Leaf Sprigs */}
-        <path d="M100 24 C85 15 95 6 108 12 C102 20 101 22 100 24 Z" fill="#7be495" opacity="0.85" />
-        <path d="M150 34 C138 45 148 55 158 46 C154 38 152 36 150 34 Z" fill="#48c9b0" opacity="0.85" />
-        <path d="M190 26 C178 18 188 8 198 16 C194 22 192 24 190 26 Z" fill="#7be495" opacity="0.9" />
+        {/* Dense Foliage Leaves cascading down */}
+        <path d="M25 60 C48 45 60 70 42 85 C32 75 28 68 25 60 Z" fill="#7be495" opacity="0.9" />
+        <path d="M12 140 C-8 120 10 100 30 115 C22 130 18 135 12 140 Z" fill="#48c9b0" opacity="0.9" />
+        <path d="M38 210 C62 195 72 225 50 238 C42 228 40 220 38 210 Z" fill="#7be495" opacity="0.85" />
+        <path d="M20 290 C-2 270 15 250 35 268 C28 280 24 285 20 290 Z" fill="#48c9b0" opacity="0.9" />
+        <path d="M45 370 C70 350 82 385 58 398 C48 388 46 380 45 370 Z" fill="#7be495" opacity="0.9" />
+        <path d="M22 450 C0 430 18 410 40 428 C30 440 26 445 22 450 Z" fill="#32936f" opacity="0.85" />
+        <path d="M52 530 C78 510 90 545 66 558 C56 548 54 540 52 530 Z" fill="#7be495" opacity="0.9" />
+        <path d="M28 620 C6 600 24 580 45 598 C36 610 32 615 28 620 Z" fill="#48c9b0" opacity="0.9" />
+        <path d="M58 710 C85 690 95 725 72 738 C62 728 60 720 58 710 Z" fill="#7be495" opacity="0.9" />
+        <path d="M30 800 C8 780 26 760 48 778 C38 790 34 795 30 800 Z" fill="#48c9b0" opacity="0.85" />
 
-        {/* Right Leaf Sprigs */}
-        <path d="M420 24 C435 15 425 6 412 12 C418 20 419 22 420 24 Z" fill="#7be495" opacity="0.85" />
-        <path d="M370 34 C382 45 372 55 362 46 C366 38 368 36 370 34 Z" fill="#48c9b0" opacity="0.85" />
-        <path d="M330 26 C342 18 332 8 322 16 C326 22 328 24 330 26 Z" fill="#7be495" opacity="0.9" />
-
-        {/* Left Side Flower */}
-        <g transform="translate(140, 22) scale(0.6)">
-          <ellipse cx="0" cy="-10" rx="4" ry="6.5" fill="#f08b76" />
-          <ellipse cx="0" cy="10" rx="4" ry="6.5" fill="#f08b76" />
-          <ellipse cx="-10" cy="0" rx="6.5" ry="4" fill="#f08b76" />
-          <ellipse cx="10" cy="0" rx="6.5" ry="4" fill="#f08b76" />
-          <circle cx="0" cy="0" r="3.5" fill="#f6c358" />
-        </g>
-
-        {/* Right Side Flower */}
-        <g transform="translate(380, 22) scale(0.6)">
-          <ellipse cx="0" cy="-10" rx="4" ry="6.5" fill="#f08b76" />
-          <ellipse cx="0" cy="10" rx="4" ry="6.5" fill="#f08b76" />
-          <ellipse cx="-10" cy="0" rx="6.5" ry="4" fill="#f08b76" />
-          <ellipse cx="10" cy="0" rx="6.5" ry="4" fill="#f08b76" />
-          <circle cx="0" cy="0" r="3.5" fill="#f6c358" />
-        </g>
-
-        {/* Central Prominent Blossom */}
-        <g transform="translate(260, 30)">
-          <circle cx="0" cy="0" r="14" fill="#f08b76" opacity="0.25" />
+        {/* Blooming Peach Flowers along the vine */}
+        <g transform="translate(48, 120) scale(0.65)">
+          <circle cx="0" cy="0" r="14" fill="#f08b76" opacity="0.3" />
           <ellipse cx="0" cy="-12" rx="4.5" ry="7.5" fill="#f08b76" />
           <ellipse cx="0" cy="12" rx="4.5" ry="7.5" fill="#f08b76" />
           <ellipse cx="-12" cy="0" rx="7.5" ry="4.5" fill="#f08b76" />
@@ -242,7 +232,148 @@ export function BotanicalGarland({ width = 460, height = 50, className = '' }) {
           <ellipse cx="-8" cy="8" rx="4" ry="6.5" transform="rotate(45 -8 8)" fill="#fa9f8e" />
           <ellipse cx="8" cy="8" rx="4" ry="6.5" transform="rotate(-45 8 8)" fill="#fa9f8e" />
           <circle cx="0" cy="0" r="4.5" fill="#f6c358" />
-          <circle cx="0" cy="0" r="1.8" fill="#ffffff" />
+        </g>
+
+        <g transform="translate(56, 320) scale(0.7)">
+          <circle cx="0" cy="0" r="14" fill="#f08b76" opacity="0.3" />
+          <ellipse cx="0" cy="-12" rx="4.5" ry="7.5" fill="#f08b76" />
+          <ellipse cx="0" cy="12" rx="4.5" ry="7.5" fill="#f08b76" />
+          <ellipse cx="-12" cy="0" rx="7.5" ry="4.5" fill="#f08b76" />
+          <ellipse cx="12" cy="0" rx="7.5" ry="4.5" fill="#f08b76" />
+          <circle cx="0" cy="0" r="4.5" fill="#f6c358" />
+        </g>
+
+        <g transform="translate(68, 500) scale(0.65)">
+          <circle cx="0" cy="0" r="14" fill="#f08b76" opacity="0.3" />
+          <ellipse cx="0" cy="-12" rx="4.5" ry="7.5" fill="#f08b76" />
+          <ellipse cx="0" cy="12" rx="4.5" ry="7.5" fill="#f08b76" />
+          <ellipse cx="-12" cy="0" rx="7.5" ry="4.5" fill="#f08b76" />
+          <ellipse cx="12" cy="0" rx="7.5" ry="4.5" fill="#f08b76" />
+          <circle cx="0" cy="0" r="4.5" fill="#f6c358" />
+        </g>
+
+        <g transform="translate(58, 680) scale(0.68)">
+          <circle cx="0" cy="0" r="14" fill="#f08b76" opacity="0.3" />
+          <ellipse cx="0" cy="-12" rx="4.5" ry="7.5" fill="#f08b76" />
+          <ellipse cx="0" cy="12" rx="4.5" ry="7.5" fill="#f08b76" />
+          <ellipse cx="-12" cy="0" rx="7.5" ry="4.5" fill="#f08b76" />
+          <ellipse cx="12" cy="0" rx="7.5" ry="4.5" fill="#f08b76" />
+          <circle cx="0" cy="0" r="4.5" fill="#f6c358" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+/**
+ * Symmetrical 4-Corner Framing Container + Side Margins
+ */
+export function BotanicalCornerFrame({ children, className = '', cornerSize = 240, opacity = 0.95, withSides = true }) {
+  return (
+    <div className={`botanical-canvas-frame ${className}`}>
+      {/* 4 Corner Flourishes */}
+      <div className="botanical-corner botanical-corner-tl botanical-breathe">
+        <BotanicalCornerGraphic width={cornerSize} height={cornerSize} opacity={opacity} />
+      </div>
+      <div className="botanical-corner botanical-corner-tr botanical-breathe" style={{ animationDelay: '1.5s' }}>
+        <BotanicalCornerGraphic width={cornerSize} height={cornerSize} opacity={opacity} />
+      </div>
+      <div className="botanical-corner botanical-corner-bl botanical-breathe" style={{ animationDelay: '3s' }}>
+        <BotanicalCornerGraphic width={cornerSize} height={cornerSize} opacity={opacity} />
+      </div>
+      <div className="botanical-corner botanical-corner-br botanical-breathe" style={{ animationDelay: '4.5s' }}>
+        <BotanicalCornerGraphic width={cornerSize} height={cornerSize} opacity={opacity} />
+      </div>
+
+      {/* Side Foliage Cascades (Hidden on small mobile screens to preserve reading width) */}
+      {withSides && (
+        <>
+          <div className="hidden lg-block">
+            <BotanicalSideBorder side="left" />
+            <BotanicalSideBorder side="right" />
+          </div>
+        </>
+      )}
+
+      {children}
+    </div>
+  );
+}
+
+/**
+ * Symmetrical Botanical Garland Banner (Top/Bottom Center Banner from Reference Deck)
+ */
+export function BotanicalGarland({ width = 500, height = 55, className = '' }) {
+  return (
+    <div className={`botanical-garland-wrap ${className}`}>
+      <svg
+        width={width}
+        height={height}
+        viewBox="0 0 540 65"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="botanical-garland"
+      >
+        {/* Left Vine Arch */}
+        <path
+          d="M25 32 C120 12 185 52 260 32"
+          stroke="#48c9b0"
+          strokeWidth="2"
+          strokeLinecap="round"
+          opacity="0.85"
+        />
+        {/* Right Vine Arch */}
+        <path
+          d="M515 32 C420 12 355 52 280 32"
+          stroke="#48c9b0"
+          strokeWidth="2"
+          strokeLinecap="round"
+          opacity="0.85"
+        />
+
+        {/* Left Foliage Sprigs */}
+        <path d="M100 24 C84 14 96 4 110 11 C104 20 102 22 100 24 Z" fill="#7be495" opacity="0.9" />
+        <path d="M152 36 C138 48 149 59 160 49 C156 40 154 38 152 36 Z" fill="#48c9b0" opacity="0.9" />
+        <path d="M195 26 C182 17 193 6 204 15 C200 22 198 24 195 26 Z" fill="#7be495" opacity="0.95" />
+
+        {/* Right Foliage Sprigs */}
+        <path d="M440 24 C456 14 444 4 430 11 C436 20 438 22 440 24 Z" fill="#7be495" opacity="0.9" />
+        <path d="M388 36 C402 48 391 59 380 49 C384 40 386 38 388 36 Z" fill="#48c9b0" opacity="0.9" />
+        <path d="M345 26 C358 17 347 6 336 15 C340 22 342 24 345 26 Z" fill="#7be495" opacity="0.95" />
+
+        {/* Left Accent Flower */}
+        <g transform="translate(145, 24) scale(0.65)">
+          <circle cx="0" cy="0" r="10" fill="#f08b76" opacity="0.25" />
+          <ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f08b76" />
+          <ellipse cx="0" cy="11" rx="4.5" ry="7" fill="#f08b76" />
+          <ellipse cx="-11" cy="0" rx="7" ry="4.5" fill="#f08b76" />
+          <ellipse cx="11" cy="0" rx="7" ry="4.5" fill="#f08b76" />
+          <circle cx="0" cy="0" r="4" fill="#f6c358" />
+        </g>
+
+        {/* Right Accent Flower */}
+        <g transform="translate(395, 24) scale(0.65)">
+          <circle cx="0" cy="0" r="10" fill="#f08b76" opacity="0.25" />
+          <ellipse cx="0" cy="-11" rx="4.5" ry="7" fill="#f08b76" />
+          <ellipse cx="0" cy="11" rx="4.5" ry="7.5" fill="#f08b76" />
+          <ellipse cx="-11" cy="0" rx="7.5" ry="4.5" fill="#f08b76" />
+          <ellipse cx="11" cy="0" rx="7.5" ry="4.5" fill="#f08b76" />
+          <circle cx="0" cy="0" r="4" fill="#f6c358" />
+        </g>
+
+        {/* Central Blooming Flower */}
+        <g transform="translate(270, 32)">
+          <circle cx="0" cy="0" r="16" fill="#f08b76" opacity="0.3" />
+          <ellipse cx="0" cy="-13" rx="5" ry="8.5" fill="#f08b76" />
+          <ellipse cx="0" cy="13" rx="5" ry="8.5" fill="#f08b76" />
+          <ellipse cx="-13" cy="0" rx="8.5" ry="5" fill="#f08b76" />
+          <ellipse cx="13" cy="0" rx="8.5" ry="5" fill="#f08b76" />
+          <ellipse cx="-9" cy="-9" rx="4.5" ry="7" transform="rotate(-45 -9 -9)" fill="#fa9f8e" />
+          <ellipse cx="9" cy="-9" rx="4.5" ry="7" transform="rotate(45 9 -9)" fill="#fa9f8e" />
+          <ellipse cx="-9" cy="9" rx="4.5" ry="7" transform="rotate(45 -9 9)" fill="#fa9f8e" />
+          <ellipse cx="9" cy="9" rx="4.5" ry="7" transform="rotate(-45 9 9)" fill="#fa9f8e" />
+          <circle cx="0" cy="0" r="5" fill="#f6c358" />
+          <circle cx="0" cy="0" r="2" fill="#ffffff" />
         </g>
       </svg>
     </div>
@@ -257,7 +388,7 @@ export function BotanicalDivider({ isLight = false, className = '' }) {
     <div className={`botanical-divider ${className}`}>
       <div className={`botanical-divider-line ${isLight ? 'line-cream' : ''}`} />
       <div className="botanical-divider-emblem">
-        <BotanicalFlower size={24} />
+        <BotanicalFlower size={26} />
       </div>
       <div className={`botanical-divider-line ${isLight ? 'line-cream' : ''}`} />
     </div>

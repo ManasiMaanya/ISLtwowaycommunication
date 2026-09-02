@@ -5,12 +5,12 @@
 
 :root {
   /* Brand Canvas & Forest Green Spectrum */
-  --color-forest-950: #10241f;
-  --color-forest-900: #162f28;
-  --color-forest-850: #1b3830;
-  --color-forest-800: #20433a; /* Primary Reference Canvas */
-  --color-forest-750: #264e44;
-  --color-forest-700: #2d5a4f;
+  --color-forest-950: #0e201b;
+  --color-forest-900: #142a24;
+  --color-forest-850: #19342c;
+  --color-forest-800: #1f3e35; /* Primary Reference Canvas */
+  --color-forest-750: #25493f;
+  --color-forest-700: #2d564b;
   --color-forest-600: #386b5e;
   --color-forest-500: #498273;
   --color-forest-400: #629c8e;
@@ -18,30 +18,31 @@
   --color-forest-200: #b4d4cc;
   --color-forest-100: #deede9;
 
-  /* Warm Cream & Ivory Surfaces */
-  --color-cream-50: #fffdfa;
-  --color-cream-100: #fbf7f0;
+  /* Warm Cream & Editorial Ivory Surfaces */
+  --color-cream-50: #fffefb;
+  --color-cream-100: #faf6ed;
   --color-cream-200: #f5eedf;
-  --color-cream-300: #ede0cd;
+  --color-cream-300: #ebe0cb;
   --color-cream-400: #dfcfb6;
   --color-cream-500: #c9b497;
+  --color-parchment: #fbf7ef;
 
-  /* Peach & Coral Accents (Petals & Primary Highlights) */
-  --color-coral-100: #feeee9;
+  /* Peach & Coral Accents (Petals & Highlights) */
+  --color-coral-100: #ffede8;
   --color-coral-200: #fcd5cb;
-  --color-coral-300: #f8b4a5;
+  --color-coral-300: #f9b5a6;
   --color-coral-400: #f49683;
   --color-coral-500: #f08b76; /* Reference Bloom Coral */
   --color-coral-600: #de6e57;
   --color-coral-700: #bd4f3a;
 
-  /* Mint & Turquoise Highlights (Foliage & Status) */
+  /* Mint & Turquoise Highlights (Foliage & Buttons) */
   --color-mint-100: #eafaf4;
   --color-mint-200: #c2f2de;
   --color-mint-300: #7be495; /* Leaf Sprig */
   --color-mint-400: #48c9b0; /* Mint Accent */
-  --color-mint-500: #2da890;
-  --color-mint-600: #208773;
+  --color-mint-500: #20b2aa; /* Reference Button Mint */
+  --color-mint-600: #1b8e88;
 
   /* Warm Amber & Gold (Pollen & Accolades) */
   --color-gold-300: #fde68a;
@@ -53,35 +54,35 @@
   --bg-deep: var(--color-forest-900);
   --bg-card-dark: var(--color-forest-750);
   --bg-card-elevated: var(--color-forest-700);
-  --bg-card-cream: var(--color-cream-100);
-  --bg-coral-subtle: rgba(240, 139, 118, 0.12);
-  --bg-mint-subtle: rgba(72, 201, 176, 0.12);
+  --bg-card-cream: var(--color-parchment);
+  --bg-coral-subtle: rgba(240, 139, 118, 0.14);
+  --bg-mint-subtle: rgba(72, 201, 176, 0.14);
 
   /* Borders */
-  --border-subtle: rgba(205, 224, 216, 0.12);
-  --border-medium: rgba(205, 224, 216, 0.22);
-  --border-prominent: rgba(205, 224, 216, 0.4);
-  --border-cream: rgba(223, 207, 182, 0.5);
-  --border-coral: rgba(240, 139, 118, 0.4);
-  --border-mint: rgba(72, 201, 176, 0.4);
+  --border-subtle: rgba(205, 224, 216, 0.14);
+  --border-medium: rgba(205, 224, 216, 0.25);
+  --border-prominent: rgba(205, 224, 216, 0.45);
+  --border-cream: rgba(210, 192, 165, 0.55);
+  --border-coral: rgba(240, 139, 118, 0.45);
+  --border-mint: rgba(72, 201, 176, 0.45);
 
   /* Typography Colors */
-  --text-primary-on-dark: #fbf9f4;
-  --text-secondary-on-dark: #cfe0d9;
-  --text-muted-on-dark: #8daea3;
-  --text-dim-on-dark: #63847a;
+  --text-primary-on-dark: #fffdf9;
+  --text-secondary-on-dark: #d2e4dd;
+  --text-muted-on-dark: #93b3a9;
+  --text-dim-on-dark: #65877d;
 
   --text-primary-on-light: #162f28;
-  --text-secondary-on-light: #3d5a51;
-  --text-muted-on-light: #6a887f;
+  --text-secondary-on-light: #37534b;
+  --text-muted-on-light: #648178;
 
   /* Elevation Shadows */
   --shadow-xs: 0 1px 3px rgba(10, 25, 20, 0.2);
   --shadow-sm: 0 3px 10px rgba(10, 25, 20, 0.25);
   --shadow-md: 0 8px 24px rgba(8, 20, 16, 0.35);
   --shadow-lg: 0 16px 48px rgba(6, 16, 13, 0.45);
-  --shadow-glow-coral: 0 0 28px rgba(240, 139, 118, 0.28);
-  --shadow-glow-mint: 0 0 28px rgba(72, 201, 176, 0.24);
+  --shadow-glow-coral: 0 0 32px rgba(240, 139, 118, 0.35);
+  --shadow-glow-mint: 0 0 32px rgba(72, 201, 176, 0.3);
 
   /* Border Radii */
   --radius-xs: 4px;
@@ -91,7 +92,7 @@
   --radius-xl: 32px;
   --radius-full: 9999px;
 
-  /* Spacing Scale (8pt grid basis) */
+  /* Spacing Scale */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -117,6 +118,7 @@
 
   /* Z-indices */
   --z-base: 1;
+  --z-decor: 2;
   --z-sticky: 100;
   --z-drawer: 200;
   --z-modal: 500;
