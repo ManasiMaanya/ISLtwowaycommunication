@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#1c3a32"/>
+  <!-- Leaves -->
+  <path d="M18 32 C12 24 20 16 28 20 C22 26 22 28 18 32 Z" fill="#48c9b0" opacity="0.85"/>
+  <path d="M46 32 C52 24 44 16 36 20 C42 26 42 28 46 32 Z" fill="#48c9b0" opacity="0.85"/>
+  <path d="M22 44 C16 48 20 56 28 50 C24 46 23 44 22 44 Z" fill="#7be495" opacity="0.8"/>
+  <path d="M42 44 C48 48 44 56 36 50 C40 46 41 44 42 44 Z" fill="#7be495" opacity="0.8"/>
+  <!-- Central Flower Petals -->
+  <circle cx="32" cy="32" r="14" fill="#f08b76" opacity="0.3"/>
+  <ellipse cx="32" cy="22" rx="5" ry="8" fill="#f08b76"/>
+  <ellipse cx="32" cy="42" rx="5" ry="8" fill="#f08b76"/>
+  <ellipse cx="22" cy="32" rx="8" ry="5" fill="#f08b76"/>
+  <ellipse cx="42" cy="32" rx="8" ry="5" fill="#f08b76"/>
+  <ellipse cx="25" cy="25" rx="5.5" ry="7" transform="rotate(-45 25 25)" fill="#fa9f8e"/>
+  <ellipse cx="39" cy="25" rx="5.5" ry="7" transform="rotate(45 39 25)" fill="#fa9f8e"/>
+  <ellipse cx="25" cy="39" rx="5.5" ry="7" transform="rotate(45 25 39)" fill="#fa9f8e"/>
+  <ellipse cx="39" cy="39" rx="5.5" ry="7" transform="rotate(-45 39 39)" fill="#fa9f8e"/>
+  <!-- Center Core -->
+  <circle cx="32" cy="32" r="5.5" fill="#f6c358"/>
+  <circle cx="32" cy="32" r="2.5" fill="#ffffff" opacity="0.9"/>
+</svg>

@@ -1,0 +1,129 @@
+/* ==========================================================================
+   SAYTU TYPOGRAPHY SYSTEM
+   Expressive Editorial Serif Headings + Clean Modern Sans UI
+   ========================================================================== */
+
+/* Headings */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--text-primary-on-dark);
+  line-height: 1.18;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+/* Sub-headings and Overlines */
+.overline {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-coral-400);
+}
+
+.overline-mint {
+  color: var(--color-mint-300);
+}
+
+.overline-gold {
+  color: var(--color-gold-400);
+}
+
+/* Body & UI Text */
+body, p, input, select, textarea, button, .font-sans {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary-on-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-lead {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--text-secondary-on-dark);
+  font-weight: 400;
+}
+
+.text-sm {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.text-muted {
+  color: var(--text-muted-on-dark);
+}
+
+.text-dim {
+  color: var(--text-dim-on-dark);
+}
+
+.text-coral {
+  color: var(--color-coral-400);
+}
+
+.text-mint {
+  color: var(--color-mint-400);
+}
+
+.text-gold {
+  color: var(--color-gold-400);
+}
+
+/* Gujarati script formatting */
+.gujarati-text {
+  font-family: var(--font-gujarati);
+  letter-spacing: 0.01em;
+}
+
+/* ISL Gloss Code tag */
+.gloss-tag {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(36, 75, 65, 0.7);
+  border: 1px solid var(--border-medium);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  color: var(--color-mint-300);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gloss-tag-coral {
+  border-color: var(--border-coral);
+  color: var(--color-coral-400);
+  background: var(--bg-coral-subtle);
+}
