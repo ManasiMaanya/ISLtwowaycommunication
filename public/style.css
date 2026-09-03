@@ -1,0 +1,447 @@
+:root {
+  --ink: #101B2D;
+  --panel: #17253D;
+  --panel-raised: #1E304C;
+  --line: #2C4160;
+  --text: #EDF1F7;
+  --text-dim: #9BAAC4;
+  --teal: #3FBFAD;
+  --coral: #F0784A;
+  --amber: #E8B23C;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--ink);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---------- Top bar ---------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.brand-mark {
+  font-family: 'Noto Sans Gujarati', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--amber);
+  background: var(--panel-raised);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.brand-sub {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.room-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.room-controls label {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+#roomInput {
+  background: var(--panel-raised);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 6px 10px;
+  width: 100px;
+  font-family: 'Inter', sans-serif;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot--off { background: #55617A; }
+.dot--on { background: var(--teal); box-shadow: 0 0 6px var(--teal); }
+
+.translate-badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel-raised);
+}
+.translate-badge.on { color: var(--teal); border-color: var(--teal); }
+.translate-badge.off { color: var(--text-dim); }
+
+/* ---------- Session bar: role + single language toggle ---------- */
+
+.session-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+  gap: 16px;
+  background: var(--panel);
+}
+
+.session-label {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-right: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.role-select, .lang-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.role-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  background: var(--panel-raised);
+  color: var(--text-dim);
+  border: 1px solid var(--line);
+  padding: 7px 14px;
+  cursor: pointer;
+}
+.role-btn:first-of-type { border-radius: 7px 0 0 7px; }
+.role-btn:last-of-type { border-radius: 0 7px 7px 0; border-left: none; }
+.role-btn.active { background: var(--teal); color: #0A1A22; border-color: var(--teal); }
+
+.lang-btn {
+  background: var(--panel-raised);
+  color: var(--text-dim);
+  border: 1px solid var(--line);
+  padding: 7px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+.lang-btn:first-of-type { border-radius: 7px 0 0 7px; }
+.lang-btn:last-of-type { border-radius: 0 7px 7px 0; border-left: none; }
+.lang-btn.active { background: var(--amber); color: #2A1105; font-weight: 600; border-color: var(--amber); }
+
+/* ---------- Main layout: chat left, video right ---------- */
+
+.layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1px;
+  background: var(--line);
+}
+
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; }
+}
+
+.chat-column {
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  min-height: 460px;
+}
+
+.feed {
+  flex: 1;
+  padding: 20px 28px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feed-empty {
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+.bubble {
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.bubble.mine {
+  align-self: flex-end;
+  background: var(--teal);
+  color: #0A1A22;
+}
+
+.bubble.theirs {
+  align-self: flex-start;
+  background: var(--panel-raised);
+  border: 1px solid var(--line);
+}
+
+.bubble .meta {
+  display: block;
+  font-size: 11px;
+  opacity: 0.75;
+  margin-top: 4px;
+}
+
+.bubble .gu-text {
+  font-family: 'Noto Sans Gujarati', sans-serif;
+}
+
+.bubble.unmatched {
+  border: 1px solid var(--amber);
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+  padding: 16px 28px;
+  border-top: 1px solid var(--line);
+}
+
+.input-row input[type="text"] {
+  flex: 1;
+  background: var(--panel-raised);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 7px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+}
+
+.mic-btn, .send-btn {
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.mic-btn {
+  background: var(--panel-raised);
+  border: 1px solid var(--line);
+  color: var(--text);
+  width: 42px;
+}
+
+.mic-btn.listening {
+  background: var(--amber);
+  color: #2A1105;
+  border-color: var(--amber);
+}
+
+.send-btn {
+  background: var(--teal);
+  color: #0A1A22;
+  padding: 0 18px;
+}
+
+/* ---------- Right: stacked video column ---------- */
+
+.video-column {
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+}
+
+.video-tile {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.video-tile video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #05070C;
+}
+
+.video-label {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  font-size: 12px;
+  background: rgba(16, 27, 45, 0.75);
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  font-size: 13px;
+  color: var(--text-dim);
+  background: var(--panel);
+}
+
+.video-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ghost-btn {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 7px;
+  padding: 8px 14px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.ghost-btn:hover { border-color: var(--amber); }
+.ghost-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.ghost-btn.active { background: var(--teal); color: #0A1A22; border-color: var(--teal); }
+
+/* ---------- Sign language input overlay + panel ---------- */
+
+.sign-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.sign-panel {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sign-panel-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.sign-mode-toggle {
+  display: flex;
+}
+
+.sign-mode-btn {
+  background: var(--panel-raised);
+  color: var(--text-dim);
+  border: 1px solid var(--line);
+  padding: 7px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+.sign-mode-btn:first-of-type { border-radius: 7px 0 0 7px; }
+.sign-mode-btn:last-of-type { border-radius: 0 7px 7px 0; border-left: none; }
+.sign-mode-btn.active { background: var(--amber); color: #2A1105; font-weight: 600; border-color: var(--amber); }
+
+.sign-status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 20px;
+}
+
+.sign-status {
+  font-size: 12px;
+  color: var(--teal);
+}
+
+.sign-buffer {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--amber);
+}
+
+.sign-buffer-clear {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: auto;
+  padding: 2px 6px;
+}
+.sign-buffer-clear:hover { color: var(--coral); }
+
+.sign-vocab-note {
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---------- Bottom controls ---------- */
+
+.controls-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 28px;
+  border-top: 1px solid var(--line);
+}
+
+.demo-status {
+  font-size: 13px;
+  color: var(--text-dim);
+}

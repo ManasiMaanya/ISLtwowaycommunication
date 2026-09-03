@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Setu — Two-Way Sign &amp; Speech Bridge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+Gujarati:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">સ</span>
+    <span class="brand-name">Setu</span>
+    <span class="brand-sub">two-way sign &amp; speech bridge</span>
+  </div>
+
+  <div class="room-controls">
+    <label for="roomInput">Room</label>
+    <input id="roomInput" type="text" value="demo" maxlength="20" />
+    <span id="connectionDot" class="dot dot--off" title="Not connected"></span>
+    <span id="connectionText" class="conn-text">connecting…</span>
+    <span id="translateBadge" class="translate-badge">checking translate…</span>
+  </div>
+</header>
+
+<div class="session-bar">
+  <div class="role-select">
+    <span class="session-label">You are</span>
+    <button class="role-btn active" data-role="A">Side A</button>
+    <button class="role-btn" data-role="B">Side B</button>
+  </div>
+  <div class="lang-toggle" id="globalLangToggle">
+    <span class="session-label">Display &amp; speak in</span>
+    <button class="lang-btn active" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="gu">ગુજરાતી</button>
+  </div>
+</div>
+
+<main class="layout">
+
+  <!-- LEFT: single chat thread -->
+  <section class="chat-column">
+    <div class="feed" id="chatFeed">
+      <p class="feed-empty">Messages will appear here, shown in the language you've selected above — for both sides.</p>
+    </div>
+
+    <div class="input-row">
+      <input type="text" id="chatInput" placeholder="Type a message" />
+      <button class="mic-btn" id="chatMic" title="Speak">🎤</button>
+      <button class="send-btn" id="chatSend">Send</button>
+    </div>
+  </section>
+
+  <!-- RIGHT: stacked video -->
+  <aside class="video-column">
+    <div class="video-tile" data-owner="local">
+      <video id="localVideo" autoplay playsinline muted></video>
+      <canvas id="signOverlay" class="sign-overlay"></canvas>
+      <span class="video-label">You</span>
+    </div>
+    <div class="video-tile" data-owner="remote">
+      <video id="remoteVideo" autoplay playsinline></video>
+      <span class="video-label">Other side</span>
+      <div id="videoPlaceholder" class="video-placeholder">Waiting for the other side to join…</div>
+    </div>
+    <div class="video-controls">
+      <button id="startCallBtn" class="ghost-btn">Start video</button>
+      <button id="camToggle" class="ghost-btn" disabled>Camera off</button>
+      <button id="micToggle" class="ghost-btn" disabled>Mute</button>
+    </div>
+
+    <div class="sign-panel">
+      <div class="sign-panel-row">
+        <button id="signToggleBtn" class="ghost-btn">🤟 Sign input: off</button>
+        <div class="sign-mode-toggle" id="signModeToggle">
+          <button class="sign-mode-btn active" data-mode="word">Words</button>
+          <button class="sign-mode-btn" data-mode="alphabet">Alphabet</button>
+        </div>
+      </div>
+      <div class="sign-status-row">
+        <span id="signStatus" class="sign-status"></span>
+        <span id="signBuffer" class="sign-buffer"></span>
+        <button id="signBufferClear" class="sign-buffer-clear" title="Clear spelled letters">✕</button>
+      </div>
+      <p class="sign-vocab-note">
+        Words recognized: hello, thank you, yes, no, good, bad, stop, water, food, help, question, sorry, please, wait, name, understand, restroom.
+        "Yes"/"no" use a head nod/shake (sourced from a real ISL training transcript). The rest are hand poses chosen to be
+        machine-distinguishable, not yet checked against real ISL — see the sourcing note at the top of signLanguage.js.
+        Alphabet mode spells other words letter by letter (C, H, J, R, Z not supported, and it's ASL-shaped, not verified ISL — see the same note).
+      </p>
+    </div>
+  </aside>
+
+</main>
+
+<footer class="controls-bar">
+  <button id="demoScriptBtn" class="ghost-btn">Run demo script ▸</button>
+  <span id="demoStatus" class="demo-status"></span>
+</footer>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="phrases.js"></script>
+<script src="signLanguage.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
