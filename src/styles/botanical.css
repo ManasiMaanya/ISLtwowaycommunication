@@ -1,0 +1,201 @@
+/* ==========================================================================
+   SAYTU BOTANICAL DECORATIVE SYSTEM
+   Handcrafted floral corners, garland dividers, organic vine accents
+   ========================================================================== */
+
+/* Full Canvas Botanical Frame */
+.botanical-canvas-frame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.botanical-corner {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  user-select: none;
+  transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.botanical-corner-tl {
+  top: 0;
+  left: 0;
+}
+
+.botanical-corner-tr {
+  top: 0;
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.botanical-corner-bl {
+  bottom: 0;
+  left: 0;
+  transform: scaleY(-1);
+}
+
+.botanical-corner-br {
+  bottom: 0;
+  right: 0;
+  transform: scale(-1, -1);
+}
+
+/* Subtle gentle floating animation for botanical corners */
+@keyframes botanical-breathe {
+  0%, 100% {
+    opacity: 0.92;
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.02);
+  }
+}
+
+.botanical-breathe {
+  animation: botanical-breathe 8s ease-in-out infinite;
+}
+
+/* Garland framing (horizontal top & bottom centerpieces) */
+.botanical-garland-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-3) 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.botanical-garland {
+  max-width: 520px;
+  width: 92%;
+  height: auto;
+  opacity: 0.95;
+}
+
+/* Section Floral Divider */
+.botanical-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin: var(--space-8) 0;
+  width: 100%;
+}
+
+.botanical-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-medium), transparent);
+}
+
+.botanical-divider-line.line-cream {
+  background: linear-gradient(90deg, transparent, var(--border-cream), transparent);
+}
+
+.botanical-divider-emblem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-coral-400);
+}
+
+/* Parchment / Editorial Framed Card */
+.card-parchment {
+  background: var(--color-parchment);
+  color: var(--text-primary-on-light);
+  border: 1px solid var(--border-cream);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 16px 40px rgba(10, 26, 21, 0.28);
+  position: relative;
+}
+
+.card-botanical-framed {
+  position: relative;
+  background: var(--bg-card-cream);
+  color: var(--text-primary-on-light);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-cream);
+}
+
+.card-botanical-framed::before,
+.card-botanical-framed::after {
+  content: '';
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.card-botanical-framed::before {
+  top: 8px;
+  left: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44' fill='none'%3E%3Cpath d='M6 38 C6 20 20 6 38 6' stroke='%2348c9b0' stroke-width='1.8' stroke-linecap='round' stroke-dasharray='3 3'/%3E%3Ccircle cx='38' cy='6' r='4' fill='%23f08b76'/%3E%3Ccircle cx='6' cy='38' r='3' fill='%237be495'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.card-botanical-framed::after {
+  bottom: 8px;
+  right: 8px;
+  transform: rotate(180deg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44' fill='none'%3E%3Cpath d='M6 38 C6 20 20 6 38 6' stroke='%2348c9b0' stroke-width='1.8' stroke-linecap='round' stroke-dasharray='3 3'/%3E%3Ccircle cx='38' cy='6' r='4' fill='%23f08b76'/%3E%3Ccircle cx='6' cy='38' r='3' fill='%237be495'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Subtle botanical pulse indicator */
+@keyframes botanical-bloom-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(240, 139, 118, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(240, 139, 118, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(240, 139, 118, 0);
+  }
+}
+
+.pulse-bloom {
+  animation: botanical-bloom-pulse 2.2s infinite;
+}
+
+@keyframes mint-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(72, 201, 176, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(72, 201, 176, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(72, 201, 176, 0);
+  }
+}
+
+.pulse-mint {
+  animation: mint-pulse 2s infinite;
+}
+
+/* Floating Petal Animation */
+@keyframes petalDrift {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-8px) rotate(10deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.7;
+  }
+}
+
+.animate-petal {
+  animation: petalDrift 6s ease-in-out infinite;
+}
